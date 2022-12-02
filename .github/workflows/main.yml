@@ -9,4 +9,11 @@ jobs:
       - run: pwd
       - run: ls -la ../..
       - run: cwebp -resize 1000 0 -q 75 assets/images/people/NIGU.jpg -o assets/images/people/NIGU.webp
+      - name: Commit & Push
+        uses: Andro999b/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
+          message: 'Overwritten by Github Actions - ${date}'
 
