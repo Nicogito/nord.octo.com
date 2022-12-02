@@ -4,6 +4,7 @@ jobs:
   create-web-pictures-for-people:
     runs-on: ubuntu-latest
     steps:
+      - uses: "actions/checkout@master"
       - run: sudo apt-get update; sudo apt-get install webp -y
       - run: pwd
       - run: ls -la ../..
