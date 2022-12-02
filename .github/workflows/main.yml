@@ -1,3 +1,8 @@
+name: learn-github-actions
+on: [push]
 jobs:
-  my_first_job:
-    name: My first job
+  create-web-pictures-for-people:
+    runs-on: ubuntu-latest
+    steps:
+      - run: apt-get update; apt-get install libwebp -y
+      - run: for file in assets/images/people/*; do cwebp -resize 1000 0 -q 75 "$file" -o "${file%.*}.webp"; done
