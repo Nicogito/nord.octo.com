@@ -5,4 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update; sudo apt-get install webp -y
-      - run: for file in assets/images/people/*; do cwebp -resize 1000 0 -q 75 "$file" -o "${file%.*}.webp"; done
+      - run: cwebp -resize 1000 0 -q 75 assets/images/people/NIGU.jpg -o assets/images/people/NIGU.webp
+
