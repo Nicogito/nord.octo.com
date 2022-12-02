@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update; sudo apt-get install webp -y
-      - run: ls -la
+      - run: pwd
+      - run: ls -la ../..
       - run: cwebp -resize 1000 0 -q 75 assets/images/people/NIGU.jpg -o assets/images/people/NIGU.webp
 
