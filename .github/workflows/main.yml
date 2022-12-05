@@ -5,15 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: "actions/checkout@master"
-      - run: sudo apt-get update; sudo apt-get install webp -y
-      - run: pwd
-      - run: ls -la ../..
-      - run: cwebp -resize 1000 0 -q 75 assets/images/people/NIGU.jpg -o assets/images/people/NIGU.webp
+      - name: install webp
+        run: sudo apt-get update; sudo apt-get install webp -y
+      - name: convert png to webp format
+        run: bash convert_png_pictures_to_webp.sh
       - name: Commit & Push
         uses: Andro999b/push@v1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
           force: true
-          message: 'Overwritten by Github Actions - ${date}'
+          message: 'Conversion of new octo pictures to webp format'
 
