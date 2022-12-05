@@ -4,7 +4,7 @@ jobs:
   create-web-pictures-for-people:
     runs-on: ubuntu-latest
     steps:
-      - uses: "actions/checkout@master"
+      - uses: "actions/checkout"
       - name: install webp
         run: sudo apt-get update; sudo apt-get install webp -y
       - name: convert png to webp format
